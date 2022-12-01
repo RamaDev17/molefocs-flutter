@@ -4,6 +4,7 @@ import '../../../style/color.dart';
 import '../../homepage.dart';
 import '../menu_navbar.dart';
 import 'final_screen.dart';
+import 'package:lottie/lottie.dart';
 
 class HasilFinal extends StatefulWidget {
   int score;
@@ -14,8 +15,24 @@ class HasilFinal extends StatefulWidget {
 }
 
 class _HasilFinalState extends State<HasilFinal> {
+  String result = "";
   @override
   Widget build(BuildContext context) {
+    if (widget.score <= 5) {
+      setState(() {
+        result = "assets/lottie/tryagain.json";
+      });
+    } else if (widget.score <= 8) {
+      setState(() {
+        result = "assets/lottie/good.json";
+      });
+    } else {
+      setState(() {
+        setState(() {
+          result = "assets/lottie/excellent.json";
+        });
+      });
+    }
     return Scaffold(
       drawer: const NavBar(),
       appBar: AppBar(
@@ -47,20 +64,13 @@ class _HasilFinalState extends State<HasilFinal> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const SizedBox(
+          SizedBox(
             width: double.infinity,
-            child: Text(
-              "Good Jobs!",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 40.0,
-                fontWeight: FontWeight.bold,
-              ),
+            child: Lottie.asset(
+              result,
+              width: 125,
+              height: 125,
             ),
-          ),
-          const SizedBox(
-            height: 45.0,
           ),
           const Text(
             "Your score is",
@@ -78,12 +88,12 @@ class _HasilFinalState extends State<HasilFinal> {
             ),
           ),
           const SizedBox(
-            height: 100.0,
+            height: 50.0,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TextButton(
+              ElevatedButton(
                 onPressed: () {
                   Navigator.pushReplacement(
                       context,
@@ -99,7 +109,7 @@ class _HasilFinalState extends State<HasilFinal> {
               const SizedBox(
                 width: 20.0,
               ),
-              TextButton(
+              ElevatedButton(
                 onPressed: () {
                   Navigator.pushReplacement(
                       context,

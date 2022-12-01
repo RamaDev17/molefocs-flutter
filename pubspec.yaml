@@ -30,6 +30,8 @@ dependencies:
   google_fonts: ^3.0.1
   syncfusion_flutter_pdfviewer: ^20.3.52
   audioplayers: ^0.20.1
+  flutter_native_splash: ^2.2.16
+  lottie: ^2.0.0
 
 dev_dependencies:
   flutter_test:
@@ -47,6 +49,7 @@ flutter:
     - assets/images/
     - assets/pdf/
     - assets/svg/
+    - assets/lottie/
 
   fonts:
     - family: Montserrat Regular

@@ -37,7 +37,7 @@ class _SplashPageState extends State<SplashPage> {
         width: lebarAll,
         decoration: const BoxDecoration(
             gradient: LinearGradient(
-                colors: [Color(0xff0096ff), Color(0xff6610f2)],
+                colors: [Color(0xFF0096FF), Color(0xff6610f2)],
                 begin: FractionalOffset.topLeft,
                 end: FractionalOffset.bottomRight)),
         child: Column(
@@ -46,8 +46,8 @@ class _SplashPageState extends State<SplashPage> {
           children: <Widget>[
             Image.asset(
               'assets/images/logo_molefocs.png',
-              width: 70,
-              height: 70,
+              width: 100,
+              height: 100,
             ),
             const SizedBox(
               height: 10,
