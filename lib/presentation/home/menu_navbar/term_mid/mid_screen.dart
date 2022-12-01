@@ -95,22 +95,61 @@ class _midTermReviewState extends State<midTermReview> {
                   const SizedBox(
                     height: 5.0,
                   ),
+
+                  // add reading question
+                  if (index <= 4) ...[
+                    const Text(
+                      "Read the text below to answer number 1 to number 5",
+                      style: TextStyle(
+                          fontFamily: 'OpenSans Normal',
+                          color: Colors.white,
+                          fontSize: 14),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    SizedBox(
+                      height: 150,
+                      child: Container(
+                        padding: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(10)),
+                            border: Border.all(color: Colors.blueAccent)),
+                        child: const SingleChildScrollView(
+                          scrollDirection: Axis.vertical,
+                          child: Text(
+                              "We are now living in what some people call the digital age. Teachers use projectors to give presentations. PCs are also used for administrative purposes-schools such as word processors to write letters, and databases to keep records of students and teachers. A school website allows teachers to publish exercises for student to complete online. Student can also enroll for courses via the website and parents can download official reports.\n\nIn banks, computers store information about the money held by each customer and enable staff to access large databases and to carry out financial transactions at high speed. They also control the cashpoints, or ATMs (automatic teller machines), which dispense money to customers by the use of a PIN-protected card. People use a Chip and PIN card to pay for goods and services.",
+                              textAlign: TextAlign.justify,
+                              style: TextStyle(
+                                  fontFamily: 'OpenSans Normal',
+                                  color: Colors.white,
+                                  fontSize: 14)),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    )
+                  ],
+
                   SizedBox(
                     width: double.infinity,
-                    height: tinggiLayar * 0.25,
+                    height: index <= 4 ? tinggiLayar * 0.1 : tinggiLayar * 0.25,
                     child: Text(
                       "${questions[index].question}",
                       textAlign: TextAlign.justify,
                       style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 14.0,
-                      ),
+                          color: Colors.white,
+                          fontSize: 14.0,
+                          fontWeight: FontWeight.bold),
                     ),
                   ),
                   for (int i = 0; i < questions[index].answers!.length; i++)
                     Container(
                       width: double.infinity,
-                      height: tinggiLayar * 0.09,
+                      height:
+                          index <= 4 ? tinggiLayar * 0.067 : tinggiLayar * 0.09,
                       margin: const EdgeInsets.only(
                           bottom: 5.0, left: 20.0, right: 15.0),
                       child: RawMaterialButton(
